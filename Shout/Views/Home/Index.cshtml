@@ -1,0 +1,53 @@
+﻿@using Shout.Models
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .shout {
+        border: 1px solid black;
+        margin-top: -1px;
+        padding: 5px;
+    }
+    .shout-user {
+        color: black;
+        font-weight: bold;
+        text-decoration: none;
+        margin-right: 10px;
+    }
+    .shout-date {
+        color: #3a3b3d;
+    }
+    .shout-content {
+        word-wrap: break-word;
+        margin-bottom:0;
+    }
+</style>
+    <h1 class="display-4">Welcome</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col-6">
+                <div style="border: 1px solid black; padding: 5px;">
+                    <form method="POST" action="/">
+                        <textarea name="Content" class="form-control" placeholder="SHOUT !!!!!"></textarea>
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </form>
+                </div>
+                @foreach (var shout in (ViewData["posts"] as IEnumerable<Shoutt>))
+                {
+                    <div class="shout">
+                        <a href="" class="shout-user">Patrick</a><span class="shout-date">@shout.DatePublication</span>
+                        <p class="shout-content">@shout.Content</p>
+                    </div>
+                }
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+
+
